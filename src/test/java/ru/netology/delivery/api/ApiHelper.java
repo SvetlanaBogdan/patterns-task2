@@ -14,6 +14,7 @@ public class ApiHelper {
             .setPort(9999)                  // порт
             .setAccept(JSON)                // что принимаем
             .setContentType(JSON)           // что отправляем
+            .log(io.restassured.filter.log.LogDetail.ALL) // 🔥 ЛОГИ (как в задании)
             .build();
 
     // отправка пользователя в API
