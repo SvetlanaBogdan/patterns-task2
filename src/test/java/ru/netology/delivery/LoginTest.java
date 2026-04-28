@@ -13,8 +13,8 @@ public class LoginTest {
 
     @BeforeAll
     static void setup() {
-        // базовый URL приложения
         Configuration.baseUrl = "http://localhost:9999";
+        Configuration.headless = false;
     }
 
     // Успешный вход (пользователь существует + активный)
@@ -50,7 +50,8 @@ public class LoginTest {
         // ожидаем ошибку
         $("[data-test-id=error-notification]")
                 .shouldBe(visible)
-                .shouldHave(text("Ошибка"));
+                .shouldHave(text("Ошибка! Пользователь заблокирован"));
+
     }
 
     // Неверный логин
@@ -67,7 +68,8 @@ public class LoginTest {
 
         $("[data-test-id=error-notification]")
                 .shouldBe(visible)
-                .shouldHave(text("Ошибка"));
+                .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
+
     }
 
     // Неверный пароль
@@ -83,6 +85,6 @@ public class LoginTest {
 
         $("[data-test-id=error-notification]")
                 .shouldBe(visible)
-                .shouldHave(text("Ошибка"));
+                .shouldHave(text("Ошибка! Неверно указан логин или пароль"));
     }
 }
