@@ -14,7 +14,7 @@ public class LoginTest {
     @BeforeAll
     static void setup() {
         Configuration.baseUrl = "http://localhost:9999";
-        Configuration.headless = false;
+
     }
 
     // Успешный вход (пользователь существует + активный)
